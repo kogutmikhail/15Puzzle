@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10.0)
 
 project(15Puzzle)
-
+set(SFML_STATIC_LIBRARIES TRUE)
 find_package(SFML REQUIRED network audio graphics window system)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
@@ -15,8 +15,4 @@ set_project_warnings(default)
 add_subdirectory(external/doctest)
 add_subdirectory(game)
 enable_testing()
-set(DEB_DIR "../build/game/Debug")
-set(REL_DIR "../build/game/Release")
-file(COPY resources DESTINATION ${DEB_DIR})
-file(COPY resources DESTINATION ${REL_DIR})
-file(COPY resources DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources DESTINATION ${CMAKE_BINARY_DIR})

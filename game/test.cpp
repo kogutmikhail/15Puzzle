@@ -1,8 +1,7 @@
-#pragma once
-#include <doctest.h>
 #include "Game.h"
+#include <doctest.h>
 
- TEST_CASE("Solve check") {
+TEST_CASE("Solve check") {
     Game game;
     game.Init();
     REQUIRE(game.is_solved == true);
@@ -15,7 +14,7 @@
 TEST_CASE("Empty check") {
     Game game;
     game.Init();
-    for (int i = 0; i < SIZE; i++){
+    for (int i = 0; i < SIZE; i++) {
         game.Move(Direction::Right);
         game.Move(Direction::Down);
     }
