@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10.0)
+add_executable(15_puzzle main.cpp Game.cpp MainMenu.cpp MainMenu.h)
+target_link_libraries(15_puzzle PRIVATE sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
+add_executable(tests Game.cpp MainMenu.cpp test.cpp)
+target_link_libraries(tests PUBLIC doctest sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
+add_test(NAME test COMMAND test --force-colors -d)
+add_custom_target(cloud-test COMMAND test --force-colors -d)
